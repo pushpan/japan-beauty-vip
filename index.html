@@ -428,26 +428,22 @@
     <style>
         /* iPhone 16 Pro Max 专项优化 */
         @media screen and (max-width: 430px) and (-webkit-device-pixel-ratio: 3) {
-            /* 超高分辨率显示优化 */
             html {
                 -webkit-text-size-adjust: 100%;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
             }
             
-            /* 触控优化 */
             button, .contact-btn, .cta-button {
                 min-height: 44px;
                 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
                 cursor: pointer;
             }
             
-            /* 视觉效果增强 */
             .gradient-bg {
                 background-attachment: fixed;
             }
             
-            /* 动画性能优化 */
             * {
                 -webkit-transform: translateZ(0);
                 transform: translateZ(0);
@@ -455,22 +451,19 @@
                 backface-visibility: hidden;
             }
             
-            /* 滚动优化 */
             body {
                 -webkit-overflow-scrolling: touch;
                 scroll-behavior: smooth;
             }
             
-            /* 高分辨率图标优化 */
             .contact-icon, .service-icon {
                 image-rendering: -webkit-optimize-contrast;
                 image-rendering: optimizeQuality;
             }
         }
         
-        /* iPhone Pro系列安全区域适配 */
         @supports (padding: max(0px)) {
-            .main-header, .booking-section, .reviews-section {
+            .main-header, .booking-section, .reviews-section, .intimate-care-section {
                 padding-left: max(20px, env(safe-area-inset-left));
                 padding-right: max(20px, env(safe-area-inset-right));
             }
@@ -480,9 +473,8 @@
             }
         }
         
-        /* 暗黑模式适配 */
         @media (prefers-color-scheme: dark) {
-            .review-card {
+            .review-card, .service-card {
                 background: rgba(255, 255, 255, 0.1) !important;
                 border: 1px solid rgba(255, 255, 255, 0.15) !important;
             }
@@ -491,13 +483,11 @@
             }
         }
         
-        /* 性能优化 */
-        .contact-card, .review-card {
+        .contact-card, .review-card, .service-card {
             will-change: transform;
             contain: layout style paint;
         }
         
-        /* 动画增强 */
         @keyframes slideInUp {
             from {
                 opacity: 0;
@@ -509,7 +499,7 @@
             }
         }
         
-        .review-card, .contact-card {
+        .review-card, .contact-card, .service-card {
             animation: slideInUp 0.6s ease-out;
         }
         
@@ -520,6 +510,10 @@
         .contact-card:nth-child(2) { animation-delay: 0.1s; }
         .contact-card:nth-child(3) { animation-delay: 0.2s; }
         .contact-card:nth-child(4) { animation-delay: 0.3s; }
+        
+        .service-card:nth-child(2) { animation-delay: 0.15s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.45s; }
     </style>
 </head>
 <body>
@@ -772,6 +766,187 @@
             lastTouchEnd = now;
         }, {passive: false});
     </script>
+
+    <!-- 私密护理专区 -->
+    <section class="intimate-care-section" style="padding: 50px 20px; background: linear-gradient(135deg, #ffeef8 0%, #f8f0ff 100%); position: relative;">
+        <!-- 背景装饰 -->
+        <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: rgba(255, 107, 157, 0.1); z-index: 1;"></div>
+        <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; border-radius: 50%; background: rgba(45, 27, 105, 0.08); z-index: 1;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2; max-width: 900px; margin: 0 auto;">
+            <h2 class="section-title" style="text-align: center; font-size: 28px; margin-bottom: 15px; color: #2d1b69;">
+                🌸 私密护理专区
+            </h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px; font-size: 14px;">
+                专业私密护理 • 安全可靠 • 效果显著 • 严格保密
+            </p>
+            
+            <!-- 私密护理服务网格 -->
+            <div class="intimate-services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                
+                <!-- 私密变粉服务 -->
+                <div class="service-card" style="background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(255, 107, 157, 0.15); border: 1px solid #ffe6f0; transition: all 0.3s ease;">
+                    <div class="service-icon" style="font-size: 32px; margin-bottom: 15px; text-align: center;">🌺</div>
+                    <h3 style="color: #ff6b9d; font-size: 18px; margin-bottom: 10px; text-align: center; font-weight: bold;">私密变粉护理</h3>
+                    <div class="service-features" style="color: #555; line-height: 1.6; font-size: 14px; margin-bottom: 15px;">
+                        <div style="margin-bottom: 8px;">✨ <strong>自然粉嫩</strong>：恢复少女般粉嫩色泽</div>
+                        <div style="margin-bottom: 8px;">🌸 <strong>安全无痛</strong>：日本进口设备，温和护理</div>
+                        <div style="margin-bottom: 8px;">⏰ <strong>快速见效</strong>：1-2次即可看到明显效果</div>
+                        <div style="margin-bottom: 8px;">🔒 <strong>严格保密</strong>：VIP独立空间，隐私保护</div>
+                    </div>
+                    <div class="price-hint" style="text-align: center; color: #ff6b9d; font-size: 12px; background: #fff0f5; padding: 8px; border-radius: 10px;">
+                        💰 VIP客户专享优惠价格
+                    </div>
+                </div>
+                
+                <!-- 私密紧致服务 -->
+                <div class="service-card" style="background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(255, 107, 157, 0.15); border: 1px solid #ffe6f0; transition: all 0.3s ease;">
+                    <div class="service-icon" style="font-size: 32px; margin-bottom: 15px; text-align: center;">💎</div>
+                    <h3 style="color: #ff6b9d; font-size: 18px; margin-bottom: 10px; text-align: center; font-weight: bold;">私密紧致塑形</h3>
+                    <div class="service-features" style="color: #555; line-height: 1.6; font-size: 14px; margin-bottom: 15px;">
+                        <div style="margin-bottom: 8px;">💪 <strong>紧致提升</strong>：恢复紧致弹性，重塑自信</div>
+                        <div style="margin-bottom: 8px;">🌟 <strong>无创技术</strong>：射频紧致，无需手术</div>
+                        <div style="margin-bottom: 8px;">⚡ <strong>持久效果</strong>：效果可维持2-3年</div>
+                        <div style="margin-bottom: 8px;">👩‍⚕️ <strong>专家操作</strong>：资深女性医师亲自施术</div>
+                    </div>
+                    <div class="price-hint" style="text-align: center; color: #ff6b9d; font-size: 12px; background: #fff0f5; padding: 8px; border-radius: 10px;">
+                        🎁 限时特惠套餐价
+                    </div>
+                </div>
+                
+                <!-- 私密美白服务 -->
+                <div class="service-card" style="background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(255, 107, 157, 0.15); border: 1px solid #ffe6f0; transition: all 0.3s ease;">
+                    <div class="service-icon" style="font-size: 32px; margin-bottom: 15px; text-align: center;">✨</div>
+                    <h3 style="color: #ff6b9d; font-size: 18px; margin-bottom: 10px; text-align: center; font-weight: bold;">私密美白亮肤</h3>
+                    <div class="service-features" style="color: #555; line-height: 1.6; font-size: 14px; margin-bottom: 15px;">
+                        <div style="margin-bottom: 8px;">🌙 <strong>深层美白</strong>：改善暗沉，提亮肤色</div>
+                        <div style="margin-bottom: 8px;">🧴 <strong>进口药剂</strong>：日本原装美白精华</div>
+                        <div style="margin-bottom: 8px;">🔄 <strong>渐进改善</strong>：循序渐进，自然美白</div>
+                        <div style="margin-bottom: 8px;">💝 <strong>贴心护理</strong>：术后专业护理指导</div>
+                    </div>
+                    <div class="price-hint" style="text-align: center; color: #ff6b9d; font-size: 12px; background: #fff0f5; padding: 8px; border-radius: 10px;">
+                        🌸 首次体验半价优惠
+                    </div>
+                </div>
+                
+                <!-- 私密抗衰服务 -->
+                <div class="service-card" style="background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(255, 107, 157, 0.15); border: 1px solid #ffe6f0; transition: all 0.3s ease;">
+                    <div class="service-icon" style="font-size: 32px; margin-bottom: 15px; text-align: center;">🌹</div>
+                    <h3 style="color: #ff6b9d; font-size: 18px; margin-bottom: 10px; text-align: center; font-weight: bold;">私密抗衰逆龄</h3>
+                    <div class="service-features" style="color: #555; line-height: 1.6; font-size: 14px; margin-bottom: 15px;">
+                        <div style="margin-bottom: 8px;">🕰️ <strong>逆转时光</strong>：恢复年轻状态</div>
+                        <div style="margin-bottom: 8px;">💉 <strong>生长因子</strong>：促进细胞再生修复</div>
+                        <div style="margin-bottom: 8px;">🔬 <strong>科技护理</strong>：最新干细胞技术</div>
+                        <div style="margin-bottom: 8px;">👑 <strong>奢华体验</strong>：顶级VIP专属服务</div>
+                    </div>
+                    <div class="price-hint" style="text-align: center; color: #ff6b9d; font-size: 12px; background: #fff0f5; padding: 8px; border-radius: 10px;">
+                        👑 VIP专属定制方案
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 私密护理优势 -->
+            <div class="intimate-advantages" style="background: rgba(255, 255, 255, 0.8); border-radius: 16px; padding: 25px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 107, 157, 0.2);">
+                <h3 style="color: #2d1b69; font-size: 20px; margin-bottom: 20px; text-align: center;">🏆 为什么选择我们的私密护理</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div style="text-align: center;">
+                        <div style="color: #ff6b9d; font-size: 24px; margin-bottom: 8px;">👩‍⚕️</div>
+                        <div style="font-weight: bold; margin-bottom: 5px; color: #2d1b69;">专业女医师</div>
+                        <div style="font-size: 12px; color: #666;">资深女性医师团队</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #ff6b9d; font-size: 24px; margin-bottom: 8px;">🏠</div>
+                        <div style="font-weight: bold; margin-bottom: 5px; color: #2d1b69;">独立VIP室</div>
+                        <div style="font-size: 12px; color: #666;">私密空间，绝对保密</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #ff6b9d; font-size: 24px; margin-bottom: 8px;">🔬</div>
+                        <div style="font-weight: bold; margin-bottom: 5px; color: #2d1b69;">进口设备</div>
+                        <div style="font-size: 12px; color: #666;">日本原装进口仪器</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #ff6b9d; font-size: 24px; margin-bottom: 8px;">🛡️</div>
+                        <div style="font-weight: bold; margin-bottom: 5px; color: #2d1b69;">安全保障</div>
+                        <div style="font-size: 12px; color: #666;">无副作用，安全可靠</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 私密护理真实案例 -->
+            <div class="intimate-testimonials" style="background: rgba(255, 107, 157, 0.05); border-radius: 16px; padding: 25px;">
+                <h3 style="color: #2d1b69; font-size: 18px; margin-bottom: 20px; text-align: center;">💝 真实客户分享</h3>
+                <div style="display: grid; gap: 15px;">
+                    <div style="background: white; border-radius: 12px; padding: 15px; border-left: 4px solid #ff6b9d;">
+                        <div style="display: flex; align-items: center; margin-bottom: 8px; gap: 10px;">
+                            <span style="font-size: 18px;">👩🏻‍💼</span>
+                            <span style="font-weight: bold; color: #2d1b69;">陈女士 | 32岁</span>
+                            <span style="color: #ff6b9d; font-size: 14px;">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p style="color: #555; font-size: 14px; line-height: 1.5; margin: 0;">"变粉+紧致套餐效果超出预期！医生很专业，过程完全无痛，现在老公都夸我像回到了20岁时的状态❤️"</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: 12px; padding: 15px; border-left: 4px solid #ff6b9d;">
+                        <div style="display: flex; align-items: center; margin-bottom: 8px; gap: 10px;">
+                            <span style="font-size: 18px;">👩🏻‍🎓</span>
+                            <span style="font-weight: bold; color: #2d1b69;">李小姐 | 28岁</span>
+                            <span style="color: #ff6b9d; font-size: 14px;">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p style="color: #555; font-size: 14px; line-height: 1.5; margin: 0;">"私密美白效果太赞了！肤色明显提亮，自信心都提升了很多。环境私密，医护人员很贴心🌸"</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: 12px; padding: 15px; border-left: 4px solid #ff6b9d;">
+                        <div style="display: flex; align-items: center; margin-bottom: 8px; gap: 10px;">
+                            <span style="font-size: 18px;">👩🏻‍💻</span>
+                            <span style="font-weight: bold; color: #2d1b69;">王女士 | 35岁</span>
+                            <span style="color: #ff6b9d; font-size: 14px;">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p style="color: #555; font-size: 14px; line-height: 1.5; margin: 0;">"产后私密抗衰项目真的很有效！紧致度明显改善，感觉重新找回了少女时期的感觉💕"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.25);
+        }
+        
+        @media (max-width: 768px) {
+            .intimate-services-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+            .intimate-advantages > div {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 15px !important;
+            }
+            .intimate-care-section .section-title {
+                font-size: 24px !important;
+            }
+        }
+        
+        /* iPhone 16 Pro Max 私密护理专项优化 */
+        @media (max-width: 430px) and (-webkit-device-pixel-ratio: 3) {
+            .service-card {
+                padding: 20px !important;
+                border-radius: 16px !important;
+            }
+            .service-card h3 {
+                font-size: 16px !important;
+            }
+            .service-features {
+                font-size: 13px !important;
+            }
+            .intimate-advantages {
+                padding: 20px !important;
+            }
+            .intimate-testimonials {
+                padding: 20px !important;
+            }
+        }
+    </style>
 
     <!-- 用户评价模块 -->
     <section class="reviews-section" style="padding: 40px 20px; background: linear-gradient(135deg, #f8f4ff 0%, #fff5f8 100%);">
@@ -1202,30 +1377,25 @@
     </style>
 
     <script>
-        // iOS设备检测和优化
         function isiOS() {
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         }
         
-        // iPhone型号检测
         function isiPhonePro() {
             return window.screen.width >= 390 && window.devicePixelRatio >= 3 && isiOS();
         }
         
-        // 初始化iOS优化
         document.addEventListener('DOMContentLoaded', function() {
             if (isiOS()) {
                 document.body.classList.add('ios-device');
                 
-                // 禁用默认的橡皮筋效果
                 document.addEventListener('touchmove', function(e) {
                     if (e.target.tagName === 'BODY') {
                         e.preventDefault();
                     }
                 }, { passive: false });
                 
-                // 优化滚动性能
-                const scrollElements = document.querySelectorAll('.reviews-container, .contact-grid');
+                const scrollElements = document.querySelectorAll('.reviews-container, .contact-grid, .intimate-services-grid');
                 scrollElements.forEach(el => {
                     el.style.webkitOverflowScrolling = 'touch';
                 });
@@ -1236,7 +1406,6 @@
                 console.log('🍎 iPhone Pro设备优化已启用');
             }
             
-            // 视差滚动优化（仅在高性能设备上启用）
             if (isiPhonePro()) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
@@ -1246,20 +1415,18 @@
                     });
                 });
                 
-                document.querySelectorAll('.review-card, .contact-card').forEach(card => {
+                document.querySelectorAll('.review-card, .contact-card, .service-card').forEach(card => {
                     observer.observe(card);
                 });
             }
         });
         
-        // 触觉反馈（iOS支持）
         function triggerHapticFeedback() {
             if (window.navigator.vibrate) {
                 window.navigator.vibrate(10);
             }
         }
         
-        // 增强复制功能
         function copyToClipboard(text, type) {
             triggerHapticFeedback();
             
@@ -1292,7 +1459,6 @@
             }
         }
         
-        // 增强Toast提示
         function showToast(message) {
             triggerHapticFeedback();
             
@@ -1331,7 +1497,6 @@
             }, 2500);
         }
         
-        // 添加Toast动画样式
         if (!document.querySelector('#enhancedToastStyles')) {
             const style = document.createElement('style');
             style.id = 'enhancedToastStyles';
